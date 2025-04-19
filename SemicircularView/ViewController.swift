@@ -15,10 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         semiCircularView.segments = [
-            SemiCircularSegment(color: .red, percentage: 20),
-            SemiCircularSegment(color: .orange, percentage: 15),
-            SemiCircularSegment(color: .yellow, percentage: 20),
-            SemiCircularSegment(color: .green, percentage: 20),
+            SemiCircularSegment(color: .systemPurple, percentage: 10),
+            SemiCircularSegment(color: .purple, percentage: 10),
+            SemiCircularSegment(color: .systemPink, percentage: 10),
+            SemiCircularSegment(color: .red, percentage: 5),
+            SemiCircularSegment(color: .orange, percentage: 4),
+            SemiCircularSegment(color: .yellow, percentage: 30),
+            SemiCircularSegment(color: .systemGreen, percentage: 10),
+            SemiCircularSegment(color: .green, percentage: 10),
+            SemiCircularSegment(color: .cyan, percentage: 20),
+            SemiCircularSegment(color: .systemBlue, percentage: 20),
+
         ]
 
         view.addSubview(semiCircularView)
