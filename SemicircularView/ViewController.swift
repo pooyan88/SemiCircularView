@@ -10,10 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     
     let semiCircularView = SemiCircularProgressView(frame: CGRect(x: 50, y: 200, width: 300, height: 150))
+    let whiteSemiView = ConfigurableSemiCircularView(frame: CGRect(x: 75, y: 225, width: 250, height: 125))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        let config = SemiCircleInfo(fillColor: .white, title: "کل پیشکش‌ها(ریال)", subtitle: "۵،۰۰۰،۰۰۰")
+        whiteSemiView.configure(with: config)
+
         semiCircularView.segments = [
             SemiCircularSegment(color: .systemPurple, percentage: 10),
             SemiCircularSegment(color: .purple, percentage: 10),
@@ -29,5 +33,6 @@ class ViewController: UIViewController {
         ]
 
         view.addSubview(semiCircularView)
+        view.addSubview(whiteSemiView)
     }
 }

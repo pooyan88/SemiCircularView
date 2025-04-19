@@ -7,10 +7,17 @@
 
 import UIKit
 
-class WhiteSemiCircularView: UIView {
+struct SemiCircleInfo {
+    let fillColor: UIColor
+    let title: String
+    let subtitle: String
+}
+
+class ConfigurableSemiCircularView: UIView {
 
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
+    private var fillColor: UIColor = .white // default
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,13 +32,11 @@ class WhiteSemiCircularView: UIView {
     }
 
     private func setupLabels() {
-        // Title Label
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        titleLabel.textColor = .black
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        titleLabel.textColor = .lightGray
         titleLabel.textAlignment = .center
 
-        // Subtitle Label
-        subtitleLabel.font = UIFont.systemFont(ofSize: 16)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 30)
         subtitleLabel.textColor = .darkGray
         subtitleLabel.textAlignment = .center
 
@@ -42,7 +47,6 @@ class WhiteSemiCircularView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        // Layout labels near the bottom-center of the semi-circle
         let labelHeight: CGFloat = 22
         let spacing: CGFloat = 6
         let totalHeight = labelHeight * 2 + spacing
@@ -65,14 +69,17 @@ class WhiteSemiCircularView: UIView {
         ctx.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
         ctx.closePath()
 
-        ctx.setFillColor(UIColor.white.cgColor)
+        ctx.setFillColor(fillColor.cgColor)
         ctx.fillPath()
     }
 
-    // MARK: - Public API
+    // MARK: - Configuration Method
 
-    func configure(title: String, subtitle: String) {
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
+    func configure(with info: SemiCircleInfo) {
+        self.fillColor = info.fillColor
+        titleLabel.text = info.title
+        subtitleLabel.text = info.subtitle
+        setNeedsDisplay()
     }
 }
+

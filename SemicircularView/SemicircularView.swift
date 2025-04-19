@@ -59,6 +59,7 @@ class SemiCircularProgressView: UIView {
             shapeLayer.path = path.cgPath
             shapeLayer.fillColor = segment.color.cgColor
             shapeLayer.lineCap = .round
+            shapeLayer.cornerRadius = 5
             layer.addSublayer(shapeLayer)
 
             // 10. Move to next segment, add padding if not the last
