@@ -51,10 +51,10 @@ class ConfigurableSemiCircularView: UIView {
         let spacing: CGFloat = 6
         let totalHeight = labelHeight * 2 + spacing
 
-        let startY = bounds.maxY - totalHeight - 10
+        let startY = bounds.maxY - totalHeight - 30
 
         titleLabel.frame = CGRect(x: 0, y: startY, width: bounds.width, height: labelHeight)
-        subtitleLabel.frame = CGRect(x: 0, y: titleLabel.frame.maxY + spacing, width: bounds.width, height: labelHeight)
+        subtitleLabel.frame = CGRect(x: 0, y: titleLabel.frame.maxY + spacing + 20, width: bounds.width, height: labelHeight)
     }
 
     override func draw(_ rect: CGRect) {
